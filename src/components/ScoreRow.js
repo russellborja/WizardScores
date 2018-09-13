@@ -63,7 +63,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     marginLeft: 1,
-    marginRight: 1
+    marginRight: 1,
+    justifyContent: "center",
+    alignItems: "stretch"
   },
   bid: {
     flex: 1,
@@ -76,13 +78,17 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     borderRadius: 5,
-    textAlign: "center"
+    textAlign: "center",
+    lineHeight: 25,
+    fontSize: 15
   },
   scoreBig: {
     flex: 1.5,
     borderWidth: 1,
     borderRadius: 5,
-    textAlign: "center"
+    textAlign: "center",
+    lineHeight: 35,
+    fontSize: 20
   }
 });
 

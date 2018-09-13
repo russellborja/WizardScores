@@ -13,10 +13,10 @@ export class SelectPlayerNumber extends Component {
   render() {
     return (
       <View style={styles.numPlayersContainer}>
-        <Text>Select number of players:</Text>
+        <Text style={styles.title}>Select number of players:</Text>
         <View style={{ flexDirection: "row" }}>
           {range(minPlayers, maxPlayers + 1).map((value, index) =>
-            <Button key={index} title={value.toString()} onPress={() => this.props.handler(value)} />)}
+            <Button style={styles.title} key={index} title={value.toString()} onPress={() => this.props.handler(value)} />)}
         </View>
       </View>
     )
@@ -27,5 +27,8 @@ const styles = StyleSheet.create({
   numPlayersContainer: {
     flexDirection: "row",
     alignItems: "center"
+  },
+  title: {
+    fontSize: 20
   }
 })

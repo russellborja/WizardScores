@@ -15,7 +15,7 @@ export class SettleBidsScreen extends Component {
   }
 
   onTricksWonChange = (playerIndex, roundNumber, tricksWon) => {
-    let newPlayerState = this.state.players;
+    let newPlayerState = clonedeep(this.state.players);
     newPlayerState[playerIndex].tricksWon[roundNumber] = tricksWon;
     this.setState({
       players: newPlayerState

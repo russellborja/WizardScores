@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { View, Text, Button, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { SelectPlayerNumber, SelectPlayerName } from '../components';
 import { config } from '../config';
 import range from 'lodash.range';
+import clonedeep from 'lodash.clonedeep';
 
 const { totalCards } = config;
 
@@ -34,13 +35,8 @@ export class HomeScreen extends Component {
   }
 
   onPlayerNameEdit = (text, index) => {
-    const newPlayerState = this.state.players;
-    newPlayerState[index] = {
-      key: text,
-      score: newPlayerState[index].score,
-      bid: newPlayerState[index].bid,
-
-    };
+    const newPlayerState = clonedeep(this.state.players);
+    newPlayerState[index].key = text;
     this.setState({
       players: newPlayerState
     });
@@ -48,8 +44,8 @@ export class HomeScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>LET'S PLAY !</Text>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <Text style={styles.title}>LET'S PLAY WIZARD!</Text>
         <SelectPlayerNumber handler={this.onPlayerNumberPress} />
         <SelectPlayerName handler={this.onPlayerNameEdit}
           visible={this.state.isNameInputVisible}
@@ -57,6 +53,7 @@ export class HomeScreen extends Component {
 
         {this.state.isNameInputVisible &&
           <Button
+            style={styles.title}
             title="START"
             onPress={() => {
               this.props.navigation.navigate('Score', {
@@ -65,7 +62,7 @@ export class HomeScreen extends Component {
               })
             }}
           />}
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -75,5 +72,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+  title: {
+    fontSize: 30
   }
 })

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import { ScoreGrid } from '../components';
+import clonedeep from 'lodash.clonedeep';
 
 export class ScoreScreen extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export class ScoreScreen extends Component {
   }
 
   onBidChange = (playerIndex, roundNumber, newBid) => {
-    newPlayerState = this.state.players;
+    newPlayerState = clonedeep(this.state.players);
     newPlayerState[playerIndex].bid[roundNumber] = newBid;
     this.setState({
       players: newPlayerState
