@@ -28,7 +28,7 @@ export class ScoreGrid extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <PlayerNameRow players={this.props.players} />
+        <PlayerNameRow players={this.props.players} currentRound={this.props.currentRound}/>
         <FlatList
           data={this.getNumRounds(this.props.players)}
           renderItem={this.renderItem}

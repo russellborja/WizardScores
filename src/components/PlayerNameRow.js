@@ -8,10 +8,12 @@ export class PlayerNameRow extends Component {
   }
 
   render() {
+    const { players, currentRound } = this.props;
     return (
       <View style={styles.container}>
-        {this.props.players.map((player,index) => {
-          return <Text key={index} style={styles.nameBox}>{player.key}</Text>
+        {players.map((player,index) => {
+          const isDealer = (currentRound % players.length) === index;
+          return <Text key={index} style={isDealer ? [styles.nameBox, styles.dealer] : styles.nameBox}>{player.key}</Text>
         })}
       </View>
     )
@@ -29,7 +31,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     textAlign: "center",
     alignSelf: "center",
+    lineHeight: 30,
     height: 100 + "%"
+  },
+  dealer: {
+    backgroundColor: "green",
+    overflow: "hidden"
   }
 });
 
