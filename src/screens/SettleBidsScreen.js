@@ -29,9 +29,9 @@ export class SettleBidsScreen extends Component {
     let newScore;
 
     if (roundNumber === 0) {
-      oldScore = scores[roundNumber]
+      oldScore = 0;
     } else {
-      oldScore = scores[roundNumber - 1]
+      oldScore = scores[roundNumber - 1];
     }
 
     if (bid === tricks) {
@@ -55,8 +55,7 @@ export class SettleBidsScreen extends Component {
       }));
 
       this.setState({
-        players: newPlayerState,
-        currentRound: roundNumber + 1
+        players: newPlayerState
       }, () => resolve(this.state));
     });
   }
@@ -74,7 +73,7 @@ export class SettleBidsScreen extends Component {
               .then((state) => {
                 this.props.navigation.push('Score', {
                   players: state.players,
-                  currentRound: state.currentRound
+                  currentRound: state.currentRound + 1
                 })
               });
           }} />

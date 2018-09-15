@@ -17,7 +17,7 @@ export class ScoreGrid extends Component {
   }
 
   renderItem = ({ item, index }) => {
-    const { players, showScore, selectHandler, currentRound } = this.props;
+    const { players, showScore, selectHandler, textboxHandler, currentRound } = this.props;
     return <ScoreRow players={players} rowNumber={index} currentRound={currentRound} showScore={showScore}
       textboxHandler={(playerIndex) => showScore ? players[playerIndex].score[index] : players[playerIndex].bid[index]}
       selectHandler={(playerIndex, option) => selectHandler(playerIndex, index, option)}
@@ -48,5 +48,6 @@ const styles = StyleSheet.create({
 ScoreGrid.propTypes = {
   numRounds: PropTypes.number,
   players: PropTypes.arrayOf(PropTypes.object),
-  currentRound: PropTypes.number
+  currentRound: PropTypes.number,
+  selectHandler: PropTypes.func
 };

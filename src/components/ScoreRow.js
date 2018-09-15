@@ -28,6 +28,25 @@ export class ScoreRow extends Component {
     return '-';
   }
 
+  setScoreStyle(showScore, players, playerIndex, rowNumber, currentRound) {
+    scoreStyle = [];
+    if (players.length > 4) {
+      scoreStyle.push(styles.scoreSmall);
+    } else {
+      scoreStyle.push(styles.scoreBig);
+    }
+
+    if (showScore && rowNumber < currentRound) {
+      const currentPlayerScore = players[playerIndex].score;
+      if ((rowNumber === 0 && currentPlayerScore[rowNumber] > 0) || (currentPlayerScore[rowNumber] > currentPlayerScore[rowNumber - 1])) {
+        scoreStyle.push(styles.scoreWin);
+      } else {
+        scoreStyle.push(styles.scoreLose);
+      }
+    }
+    return scoreStyle;
+  }
+
   render() {
     const { players, rowNumber, textboxHandler, selectHandler, currentRound, showScore } = this.props;
 
@@ -43,7 +62,7 @@ export class ScoreRow extends Component {
               selectTextStyle={players.length > 4 ? styles.bidTextSmall : {}}
               onChange={(option) => selectHandler(playerIndex, option.label)}>
             </ModalSelector>
-            <Text style={players.length > 4 ? styles.scoreSmall : styles.scoreBig}>{textboxHandler(playerIndex)}</Text>
+            <Text style={this.setScoreStyle(showScore, players, playerIndex, rowNumber, currentRound)}>{textboxHandler(playerIndex)}</Text>
           </View>
         )}
       </View>
@@ -89,6 +108,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 35,
     fontSize: 20
+  },
+  scoreWin: {
+    backgroundColor: "#e1ef1f",
+    overflow: "hidden"
+  },
+  scoreLose: {
+    backgroundColor: "#ff003f",
+    overflow: "hidden"
   }
 });
 

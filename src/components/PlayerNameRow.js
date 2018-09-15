@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
   },
   dealer: {
     backgroundColor: "green",
-    overflow: "hidden"
+    overflow: "hidden",
+    color: "white"
   }
 });
 
