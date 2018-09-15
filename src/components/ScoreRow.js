@@ -10,9 +10,9 @@ export class ScoreRow extends Component {
     super(props);
   }
 
-  getBidOptions(rowNumber) {
+  getBidOptions(showScore, rowNumber) {
     let index = 0;
-    const bidTitle = [{ key: 0, section: true, label: 'Select bid' }];
+    const bidTitle = [{ key: 0, section: true, label: showScore ? 'Select bid' : 'Enter tricks won' }];
     const bidOptions = range(0, rowNumber + 2).map(index => ({
       key: index + 1,
       label: index.toString()
@@ -55,7 +55,7 @@ export class ScoreRow extends Component {
         {players.map((player, playerIndex) =>
           <View key={playerIndex} style={styles.bidScore}>
             <ModalSelector
-              data={this.getBidOptions(rowNumber)}
+              data={this.getBidOptions(showScore, rowNumber)}
               initValue={this.showPreviousBids(showScore, rowNumber, currentRound, clonedeep(player))}
               disabled={rowNumber === currentRound ? false : true}
               style={styles.bid}
