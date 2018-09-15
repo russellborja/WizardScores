@@ -38,7 +38,7 @@ export class ScoreRow extends Component {
 
     if (showScore && rowNumber < currentRound) {
       const currentPlayerScore = players[playerIndex].score;
-      if ((rowNumber === 0 && currentPlayerScore[rowNumber] > 0) || (currentPlayerScore[rowNumber] > currentPlayerScore[rowNumber - 1])) {
+      if ((rowNumber === 0 && currentPlayerScore[rowNumber] >= 0) || (currentPlayerScore[rowNumber] > currentPlayerScore[rowNumber - 1])) {
         scoreStyle.push(styles.scoreWin);
       } else {
         scoreStyle.push(styles.scoreLose);
@@ -51,7 +51,7 @@ export class ScoreRow extends Component {
     const { players, rowNumber, textboxHandler, selectHandler, currentRound, showScore } = this.props;
 
     return (
-      <View style={styles.row}>
+      <View style={rowNumber === currentRound ? [styles.row, styles.rowHighlight] : styles.row}>
         {players.map((player, playerIndex) =>
           <View key={playerIndex} style={styles.bidScore}>
             <ModalSelector
@@ -77,6 +77,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center"
+  },
+  rowHighlight: {
+    borderColor: "green",
+    borderWidth: 2,
+    borderRadius: 5
   },
   bidScore: {
     flex: 1,
