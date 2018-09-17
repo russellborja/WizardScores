@@ -10,7 +10,7 @@ export class SelectPlayerName extends Component {
   render() {
     return (
       this.props.visible && range(0, this.props.numPlayers).map((value, index) => (
-        <TextInput style={styles.playerInput} key={index} onChangeText={(text) => this.props.handler(text, index)}
+        <TextInput clearButtonMode='always' style={styles.playerInput} key={index} onChangeText={(text) => this.props.handler(text, index)}
           placeholder={index === 0 ? `Enter Dealer's Name` : `Enter Player ${index + 1} Name`}>
         </TextInput>
       ))
