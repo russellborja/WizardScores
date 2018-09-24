@@ -115,12 +115,13 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   scoreWin: {
-    backgroundColor: "#e1ef1f",
+    backgroundColor: "#00E567",
     overflow: "hidden"
   },
   scoreLose: {
-    backgroundColor: "#ff003f",
-    overflow: "hidden"
+    backgroundColor: "#FF0000",
+    overflow: "hidden",
+    color: "white"
   }
 });
 
