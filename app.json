@@ -1,5 +1,12 @@
 {
   "expo": {
-    "sdkVersion": "33.0.0"
+    "sdkVersion": "35.0.0",
+    "name": "WizardScores",
+    "slug": "wizardscores",
+    "version": "0.1.0",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

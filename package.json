@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "react-native-scripts": "1.14.0",
-    "jest-expo": "~27.0.0",
+    "jest-expo": "^35.0.0",
     "react-test-renderer": "16.3.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -19,13 +19,13 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^33.0.0",
+    "expo": "^35.0.0",
     "immutability-helper": "^2.7.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.range": "^3.2.0",
     "prop-types": "^15.6.2",
     "react": "16.8.3",
-    "react-native": "^0.61.2",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
     "react-native-modal-selector": "0.0.28",
     "react-navigation": "^2.12.1"
   }
