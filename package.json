@@ -19,13 +19,13 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^27.0.1",
+    "expo": "^33.0.0",
     "immutability-helper": "^2.7.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.range": "^3.2.0",
     "prop-types": "^15.6.2",
-    "react": "16.3.1",
-    "react-native": "~0.55.2",
+    "react": "16.8.3",
+    "react-native": "^0.61.2",
     "react-native-modal-selector": "0.0.28",
     "react-navigation": "^2.12.1"
   }
